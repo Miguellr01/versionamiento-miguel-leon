@@ -132,3 +132,14 @@ td {
 input, button {
     font-family: inherit;
 }
+
+
+.footer {
+    margin-top: auto;
+    width: 100%;
+    text-align: center;
+    padding: 14px 0;
+    color: #FFF;
+    background-color: rgba(0, 0, 0, 0.45);
+    font-size: 14px;
+}
