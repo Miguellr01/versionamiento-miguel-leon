@@ -143,3 +143,14 @@ input, button {
     background-color: rgba(0, 0, 0, 0.45);
     font-size: 14px;
 }
+
+
+.product-count {
+    color: #FFF;
+    font-weight: 600;
+    margin: 15px 0 0 0;
+    background-color: rgba(0, 0, 0, 0.35);
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--glow);
+}

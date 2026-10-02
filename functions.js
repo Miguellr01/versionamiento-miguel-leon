@@ -3,12 +3,13 @@ function loadProductTable() {
     let products = JSON.parse(localStorage.getItem('products')) || []; //Search and found products from LocalStorage
     const tableBody = document.querySelector('#productsTable tbody');
     tableBody.innerHTML = ''; //Clear the table before adding new products
+    document.getElementById('productCount').textContent = 'Productos registrados: ' + products.length;
 
-    products.forEach(product => {
+    products.forEach((product, index) => {
         //Create a table row
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td>${product.id}</td>
+            <td>${index + 1}</td>
             <td>${product.name}</td>
             <td>$${product.price}</td>
             <td><button class="delete-btn" data-id="${product.id}">Delete</button></td>
