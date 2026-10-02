@@ -1,5 +1,20 @@
+:root {
+    --bg-start: #0B6E4F;
+    --bg-end: #021A14;
+    --panel: #00C896;
+    --accent: #FFB703;
+    --accent-hover: #FB8500;
+    --label: #02261D;
+    --th-bg: #0B6E4F;
+    --td-bg: #E6FFF5;
+    --td-text: #0B3D2E;
+    --glow: #2EE6A8;
+    --danger: #E63946;
+    --danger-hover: #9D0208;
+}
+
 body {
-    background: linear-gradient(#8412B0, #000);
+    background: linear-gradient(var(--bg-start), var(--bg-end));
     font-family: 'Consolas', sans-serif;
     margin: 0;
     padding: 0;
@@ -16,7 +31,7 @@ h1 {
     margin-top: 20px;
     font-size: 2.5em;
     display: inline;
-    text-shadow: 0 0 10px #FC199A, 0 0 20px #FC199A, 0 0 30px #FC199A, 0 0 40px #FF007F, 0 0 50px #FF007F;
+    text-shadow: 0 0 10px var(--glow), 0 0 20px var(--glow), 0 0 30px var(--glow), 0 0 40px var(--panel), 0 0 50px var(--panel);
 }
 
 .container {
@@ -31,7 +46,7 @@ h1 {
 
 .formContainer {
     text-align: center;
-    background-color: #FF007F;
+    background-color: var(--panel);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -40,7 +55,7 @@ h1 {
 }
 
 label {
-    color: #00FFFF;
+    color: var(--label);
     font-size: 14px;
     margin-right: 10px;
 }
@@ -56,8 +71,8 @@ input {
 }
 
 button {
-    background-color: #FFCC00;
-    color: #8412B0;
+    background-color: var(--accent);
+    color: var(--label);
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -67,7 +82,7 @@ button {
 }
 
 button:hover {
-    background-color: #FC199A;
+    background-color: var(--accent-hover);
     color: #fff;
 }
 
@@ -84,17 +99,17 @@ th, td {
 }
 
 th {
-    background-color: #FC199A;
+    background-color: var(--th-bg);
     color: white;
 }
 
 td {
-    background-color: #00FFFF;
-    color: #8412B0;
+    background-color: var(--td-bg);
+    color: var(--td-text);
 }
 
 .delete-btn {
-    background-color: #f0745e;
+    background-color: var(--danger);
     color: white;
     border: none;
     padding: 5px 10px;
@@ -103,7 +118,7 @@ td {
 }
 
 .delete-btn:hover {
-    background-color: #ff0800;
+    background-color: var(--danger-hover);
 }
 
 
