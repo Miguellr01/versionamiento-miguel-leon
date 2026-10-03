@@ -1,6 +1,21 @@
+:root {
+    --bg-start: #7C3AED;
+    --bg-end: #1E0A3C;
+    --panel: #A78BFA;
+    --accent: #FFB703;
+    --accent-hover: #FB8500;
+    --label: #1E0A3C;
+    --th-bg: #5B21B6;
+    --td-bg: #F3E8FF;
+    --td-text: #3B0764;
+    --glow: #C084FC;
+    --danger: #E63946;
+    --danger-hover: #9D0208;
+}
+
 body {
-    background: linear-gradient(#8412B0, #000);
-    font-family: 'Consolas', sans-serif;
+    background: linear-gradient(var(--bg-start), var(--bg-end));
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -12,11 +27,12 @@ body {
 
 h1 {
     color: #FFF;
+    font-family: 'Orbitron', sans-serif;
     text-align: center;
     margin-top: 20px;
     font-size: 2.5em;
     display: inline;
-    text-shadow: 0 0 10px #FC199A, 0 0 20px #FC199A, 0 0 30px #FC199A, 0 0 40px #FF007F, 0 0 50px #FF007F;
+    text-shadow: 0 0 10px var(--glow), 0 0 20px var(--glow), 0 0 30px var(--glow), 0 0 40px var(--panel), 0 0 50px var(--panel);
 }
 
 .container {
@@ -31,7 +47,7 @@ h1 {
 
 .formContainer {
     text-align: center;
-    background-color: #FF007F;
+    background-color: var(--panel);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -40,7 +56,7 @@ h1 {
 }
 
 label {
-    color: #00FFFF;
+    color: var(--label);
     font-size: 14px;
     margin-right: 10px;
 }
@@ -56,8 +72,8 @@ input {
 }
 
 button {
-    background-color: #FFCC00;
-    color: #8412B0;
+    background-color: var(--accent);
+    color: var(--label);
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -67,7 +83,7 @@ button {
 }
 
 button:hover {
-    background-color: #FC199A;
+    background-color: var(--accent-hover);
     color: #fff;
 }
 
@@ -84,17 +100,17 @@ th, td {
 }
 
 th {
-    background-color: #FC199A;
+    background-color: var(--th-bg);
     color: white;
 }
 
 td {
-    background-color: #00FFFF;
-    color: #8412B0;
+    background-color: var(--td-bg);
+    color: var(--td-text);
 }
 
 .delete-btn {
-    background-color: #f0745e;
+    background-color: var(--danger);
     color: white;
     border: none;
     padding: 5px 10px;
@@ -103,11 +119,102 @@ td {
 }
 
 .delete-btn:hover {
-    background-color: #ff0800;
+    background-color: var(--danger-hover);
 }
 
 
 #productsTable tbody tr {
     background-color: #FFF;
     color: #000;
+}
+
+
+input, button {
+    font-family: inherit;
+}
+
+
+.footer {
+    margin-top: auto;
+    width: 100%;
+    text-align: center;
+    padding: 14px 0;
+    color: #FFF;
+    background-color: rgba(0, 0, 0, 0.45);
+    font-size: 14px;
+}
+
+
+.product-count {
+    color: #FFF;
+    font-weight: 600;
+    margin: 15px 0 0 0;
+    background-color: rgba(0, 0, 0, 0.35);
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--glow);
+}
+
+
+#themeToggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    z-index: 10;
+    font-size: 22px;
+    line-height: 1;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+#themeToggle:hover {
+    background-color: rgba(255, 255, 255, 0.32);
+}
+
+#themeToggle:active {
+    transform: scale(0.92);
+}
+
+/*Tema oscuro*/
+body.dark {
+    --bg-start: #2E1065;
+    --bg-end: #000000;
+    --panel: #6D28D9;
+    --label: #F3E8FF;
+    --th-bg: #6D28D9;
+    --td-bg: #1F1235;
+    --td-text: #E9D5FF;
+    --glow: #A855F7;
+}
+
+/*Animación de entrada en las filas*/
+@keyframes rowIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#productsTable tbody tr {
+    animation: rowIn 0.3s ease;
+}
+
+
+body.dark button:not(.delete-btn) {
+    color: #1E0A3C;
+}
+
+body.dark button:not(.delete-btn):hover {
+    color: #fff;
 }

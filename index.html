@@ -4,17 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Example Data Table with LocalStorage</title>
-
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <button id="themeToggle" aria-label="Cambiar tema">🌙</button>
     <h1>Example Product List Web App</h1>
+    <p id="productCount" class="product-count">Productos registrados: 0</p>
 
     <div class="container">
 
         <div class="formContainer">
             <label for="name">Product Name:</label>
-            <input type="text" id="name" placeholder="Enter product name">
+            <input type="text" id="name" placeholder="Enter product name" maxlength="30">
             
             <label for="price">Price:</label>
             <input type="number" id="price" placeholder="Enter product price" min="1">
@@ -38,7 +43,9 @@
         </table>
     </div>
 
-
+    <footer class="footer">
+    Desarrollado por Miguel León · @Miguellr01
+    </footer>
     <script src="functions.js"></script>
 </body>
 </html>

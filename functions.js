@@ -3,12 +3,13 @@ function loadProductTable() {
     let products = JSON.parse(localStorage.getItem('products')) || []; //Search and found products from LocalStorage
     const tableBody = document.querySelector('#productsTable tbody');
     tableBody.innerHTML = ''; //Clear the table before adding new products
+    document.getElementById('productCount').textContent = 'Productos registrados: ' + products.length;
 
-    products.forEach(product => {
+    products.forEach((product, index) => {
         //Create a table row
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td>${product.id}</td>
+            <td>${index + 1}</td>
             <td>${product.name}</td>
             <td>$${product.price}</td>
             <td><button class="delete-btn" data-id="${product.id}">Delete</button></td>
@@ -30,9 +31,9 @@ function addProduct() {
     const price = parseFloat(document.getElementById('price').value);
 
     // Validate inputs
-    if (!name || isNaN(price) || price <= 0) {
-        alert("Please enter a valid name and price.");
-        return;
+    if (!name || /\d/.test(name) || isNaN(price) || price <= 0) {
+    alert("Please enter a valid name (without numbers) and price.");
+    return;
     }
 
     //Create the new product with unique ID
@@ -77,3 +78,28 @@ document.getElementById('addProduct').addEventListener('click', addProduct);
 
 //Load products when the page loads
 loadProductTable();
+
+
+// ===== Modo oscuro =====
+const themeToggle = document.getElementById('themeToggle');
+
+function applyTheme(isDark) {
+    document.body.classList.toggle('dark', isDark);
+    themeToggle.textContent = isDark ? '☀️' : '🌙';
+}
+
+// Cargar la preferencia guardada al abrir la página
+applyTheme(localStorage.getItem('theme') === 'dark');
+
+// Cambiar de tema al hacer clic y guardar la preferencia
+themeToggle.addEventListener('click', () => {
+    const isDark = !document.body.classList.contains('dark');
+    applyTheme(isDark);
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+});
+
+
+document.getElementById('name').addEventListener('input', (e) => {
+    e.target.value = e.target.value.replace(/[0-9]/g, '');
+});
+
