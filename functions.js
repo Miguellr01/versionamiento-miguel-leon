@@ -31,9 +31,9 @@ function addProduct() {
     const price = parseFloat(document.getElementById('price').value);
 
     // Validate inputs
-    if (!name || isNaN(price) || price <= 0) {
-        alert("Please enter a valid name and price.");
-        return;
+    if (!name || /\d/.test(name) || isNaN(price) || price <= 0) {
+    alert("Please enter a valid name (without numbers) and price.");
+    return;
     }
 
     //Create the new product with unique ID
@@ -78,3 +78,28 @@ document.getElementById('addProduct').addEventListener('click', addProduct);
 
 //Load products when the page loads
 loadProductTable();
+
+
+// ===== Modo oscuro =====
+const themeToggle = document.getElementById('themeToggle');
+
+function applyTheme(isDark) {
+    document.body.classList.toggle('dark', isDark);
+    themeToggle.textContent = isDark ? '☀️' : '🌙';
+}
+
+// Cargar la preferencia guardada al abrir la página
+applyTheme(localStorage.getItem('theme') === 'dark');
+
+// Cambiar de tema al hacer clic y guardar la preferencia
+themeToggle.addEventListener('click', () => {
+    const isDark = !document.body.classList.contains('dark');
+    applyTheme(isDark);
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+});
+
+
+document.getElementById('name').addEventListener('input', (e) => {
+    e.target.value = e.target.value.replace(/[0-9]/g, '');
+});
+

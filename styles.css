@@ -1,14 +1,14 @@
 :root {
-    --bg-start: #0B6E4F;
-    --bg-end: #021A14;
-    --panel: #00C896;
+    --bg-start: #7C3AED;
+    --bg-end: #1E0A3C;
+    --panel: #A78BFA;
     --accent: #FFB703;
     --accent-hover: #FB8500;
-    --label: #02261D;
-    --th-bg: #0B6E4F;
-    --td-bg: #E6FFF5;
-    --td-text: #0B3D2E;
-    --glow: #2EE6A8;
+    --label: #1E0A3C;
+    --th-bg: #5B21B6;
+    --td-bg: #F3E8FF;
+    --td-text: #3B0764;
+    --glow: #C084FC;
     --danger: #E63946;
     --danger-hover: #9D0208;
 }
@@ -153,4 +153,68 @@ input, button {
     padding: 6px 16px;
     border-radius: 20px;
     border: 1px solid var(--glow);
+}
+
+
+#themeToggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    z-index: 10;
+    font-size: 22px;
+    line-height: 1;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+#themeToggle:hover {
+    background-color: rgba(255, 255, 255, 0.32);
+}
+
+#themeToggle:active {
+    transform: scale(0.92);
+}
+
+/*Tema oscuro*/
+body.dark {
+    --bg-start: #2E1065;
+    --bg-end: #000000;
+    --panel: #6D28D9;
+    --label: #F3E8FF;
+    --th-bg: #6D28D9;
+    --td-bg: #1F1235;
+    --td-text: #E9D5FF;
+    --glow: #A855F7;
+}
+
+/*Animación de entrada en las filas*/
+@keyframes rowIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#productsTable tbody tr {
+    animation: rowIn 0.3s ease;
+}
+
+
+body.dark button:not(.delete-btn) {
+    color: #1E0A3C;
+}
+
+body.dark button:not(.delete-btn):hover {
+    color: #fff;
 }
